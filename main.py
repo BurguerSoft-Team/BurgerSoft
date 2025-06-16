@@ -1,6 +1,6 @@
 
 def main():
-    print("Hola mundo!")
+    print("Aqui se iniciara el proyecto!")
 
 
 
