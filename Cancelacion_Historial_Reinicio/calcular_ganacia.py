@@ -17,6 +17,7 @@ def historial():
                     break
         # Verifica que la fecha de fin no sea menor que la de inicio
         if fechas[1] < fechas[0]:
+            fechas.clear()
             print("La fecha de fin no puede ser menor que la fecha de inicio. Intenta de nuevo.\n")
             continue
         break
