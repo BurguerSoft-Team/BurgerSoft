@@ -1,54 +1,18 @@
-# Capturar: nombre, apellido, dirección, color casa, método de pago
-# Validar datos ingresados (que sean texto, no vacíos, etc.)
-# Este programador solo se enfoca en la parte personal del cliente y sus datos de contacto.
-
 def capturar_datos_cliente():
-    print("")
-    print("---Datos del cliente---")
-    print("")
+    datos_a_pedir = ["Nombre", "Apellido", "Dirección", "Color de casa", "Método de pago"]
+    datos_cliente = []
 
-    while True: 
-        nombre = input("Ingrese su nombre: ")
-        if nombre.strip() == "":
-            print("Este espacio no puede estar vacío")
-        else: 
-            break
+    for encabezado in datos_a_pedir:
+        while True:
+            dato = input(f"{encabezado}: ").strip()
+            if dato == "":
+                print("Este espacio no puede estar vacío")
+            elif encabezado == "Método de pago" and dato not in ["Efectivo", "Tarjeta"]:
+                print("Método inválido. Escriba 'Efectivo' o 'Tarjeta'.")
+            else:
+                datos_cliente.append(dato)
+                break
 
-    while True:
-        apellido = input("Ingrese su apellido: ")
-        if apellido.strip() == "":
-            print("Este espacio no puede estar vacío")
-        else: 
-            break
-
-    while True:
-        direccion = input("Ingrese la dirección de su casa: ")
-        if direccion.strip() == "":
-            print("Este espacio no puede estar vacío")
-        else: 
-            break
-
-    while True:
-        color_casa = input("Ingrese el color de su casa: ")
-        if color_casa.strip() == "":
-            print("Este espacio no puede estar vacío")
-        else: 
-            break
-
-    while True:
-        metodo_de_pago = input("Escoja su método de pago (Efectivo o Tarjeta): ")
-        if metodo_de_pago == ["Efectivo", "Tarjeta"]:
-            print("Método inválido. Escriba 'Efectivo' o 'Tarjeta'.")
-        else:
-            print(f"Método seleccionado: {metodo_de_pago}")
-            break
-    
-    with open("Datos de clientes.txt", "a", encoding="utf-8") as archivo:
-        archivo.write(f"Nombre: {nombre}\n")
-        archivo.write(f"Apellido: {apellido}\n")
-        archivo.write(f"Dirección: {direccion}\n")
-        archivo.write(f"Color de casa: {color_casa}\n")
-        archivo.write(f"Método de pago: {metodo_de_pago}\n")
-        archivo.write("-" * 30 + "\n")
+    return datos_cliente
 
 capturar_datos_cliente()
