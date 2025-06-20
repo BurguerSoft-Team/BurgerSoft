@@ -1,0 +1,4 @@
+{"codigo": 9, "cliente": "raul", "pedido": [{"producto": "hamburguesa", "cantidad": 1, "precio_unitario": 90}], "fecha": "2024-01-15"}
+{"codigo": 10, "cliente": "lucia", "pedido": [{"producto": "refresco", "cantidad": 2, "precio_unitario": 15}], "fecha": "2024-02-10"}
+{"codigo": 11, "cliente": "jose", "pedido": [{"producto": "papas", "cantidad": 2, "precio_unitario": 30}], "fecha": "2025-06-18"}
+{"codigo": 12, "cliente": "elena", "pedido": [{"producto": "hamburguesa", "cantidad": 2, "precio_unitario": 90}, {"producto": "refresco", "cantidad": 1, "precio_unitario": 15}], "fecha": "2025-06-19"}
