@@ -1,9 +1,10 @@
 
-from gestion_operaciones import verificar_archivo
-from gestion_operaciones import ARCHIVO_VENTAS
+from modulo_guardar.guardar_datos import verificar_archivo
+from pathlib import Path
 from datetime import datetime
 import json
 
+ARCHIVO_VENTAS = Path(__file__).resolve().parent.parent / "ventas.txt"
 def historial():
     print("Historial de ganacias \n")
     while True:
@@ -15,7 +16,7 @@ def historial():
                 if dato != "":
                     fechas.append(dato)
                     break
-        # Verifica que la fecha de fin no sea menor que la de inicio
+
         if fechas[1] < fechas[0]:
             fechas.clear()
             print("La fecha de fin no puede ser menor que la fecha de inicio. Intenta de nuevo.\n")
@@ -26,6 +27,7 @@ def historial():
         print("La base de datos esta vacia!")
     else:
         filtrar_ganancias(fechas)
+
 def pedir_fecha(message):
     while True:
         fecha_str = input(message)
@@ -57,6 +59,5 @@ def filtrar_ganancias(fechas):
 def convertir_cadena_a_datetime(venta):
     return datetime.strptime(venta, "%Y-%m-%d").date()
 
-if __name__ == "__main__":
-    historial()
+
 

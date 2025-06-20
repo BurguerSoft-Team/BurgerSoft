@@ -14,22 +14,18 @@ menu = {
 
 pedido = []
 
-
 def mostrar_menu():
     print("=" * 45)
-    print("   *** Bienvenido a TheBurgerClub Granada ***   ")
+    print("   *** MENU ***   ")
     print("=" * 45)
 
-
-def seleccionar():
     while True:
-        print("\n--- Menú ---")
+
         n = 1
         for plato, precio in menu.items():
             print(f"{n}. {plato} - {precio} córdobas")
             n += 1
-        print()
-
+        print("\n")
 
         try:
             seleccion = int(input("¿Qué deseas ordenar? (Elige el número del platillo): "))
@@ -63,5 +59,5 @@ def mostrar_pedido():
     for plato, precio in pedido:
         print(f"{i}. {plato} por {precio} córdobas")
         i += 1
-mostrar_menu()
-seleccionar()
+
+
