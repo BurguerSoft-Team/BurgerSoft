@@ -1,4 +1,4 @@
-
+from modulo_utils.mensajes import MENSAJES
 
 def cancelar_pedido():
     while True:
@@ -8,4 +8,4 @@ def cancelar_pedido():
         elif condicion == "n":
             return False
         else:
-            print("Por favor, ingrese 'S' para sí o 'N' para no.")
+            print(MENSAJES['respuesta_no_valida'])

@@ -1,4 +1,7 @@
 import os
+from modulo_utils.mensajes import MENSAJES
+from modulo_utils.utils import limpiar_pantalla, input_numero, input_si_no
+from modulo_pedido.cancelar import cancelar_pedido
 
 
 menu = {
@@ -18,7 +21,7 @@ menu = {
 pedido = []
 def mostrar_menu():
     print("=" * 42)
-    print("              *** MENU ***   ")
+    print(f"              {MENSAJES['menu_titulo']}   ")
     print("=" * 42)
 
     while True:
@@ -28,51 +31,61 @@ def mostrar_menu():
             n += 1
         print("\n")
 
-        try:
-            seleccion = int(input("¿Qué deseas ordenar? (Elige el número del platillo): "))
-            if 1 <= seleccion <= len(menu):
-                plato_elegido = list(menu.keys())[seleccion - 1]
-                cantidad, precio = calcular_cantidad_precio(precio=menu[plato_elegido], plato=plato_elegido)
-                pedido.append({"producto": plato_elegido, "cantidad": cantidad, "precio_unitario": precio})
-                print(f"Has agregado {cantidad} {plato_elegido} por {precio} córdobas a tu pedido.")
-            else:
-                os.system("cls")
-                print("=" * 62)
-                print("Error: opción no válida. Por favor, elige un número del menú.".center(42))
-                print("=" * 62 + "\n")
-                continue
-        except ValueError:
-            print("Entrada inválida. Debes ingresar un número correspondiente al platillo.")
+        seleccion = input_numero("¿Qué deseas ordenar? (Elige el número del platillo): ")
+        if 1 <= seleccion <= len(menu):
+            plato_elegido = list(menu.keys())[seleccion - 1]
+            cantidad, precio = calcular_cantidad_precio(precio=menu[plato_elegido], plato=plato_elegido)
+            pedido.append({"producto": plato_elegido, "cantidad": cantidad, "precio_unitario": precio})
+            print(MENSAJES['agregado_pedido'].format(cantidad=cantidad, plato=plato_elegido, precio=precio))
+        else:
+            limpiar_pantalla()
+            print("=" * 62)
+            print(MENSAJES['error_menu'].center(42))
+            print("=" * 62 + "\n")
             continue
 
-        while True:
-            otra_orden = input("¿Deseas ordenar otro plato? (sí/no): ").strip().lower()
-            if otra_orden == "si":
-                os.system("cls")
-                break
-            elif otra_orden == "no":
-                from modulo_cliente.datos_cliente import capturar_datos_cliente
-                os.system("cls")
-                capturar_datos_cliente()
-                return
-            else:
-                print("Respuesta no válida. Por favor, escribe 'sí' o 'no'.")
-                continue
+        if input_si_no(MENSAJES['ordenar_otro']):
+            limpiar_pantalla()
+            continue
+        else:
+            if pedido:
+                print("\n" + "=" * 50)
+                print(MENSAJES['resumen_pedido'])
+                print("=" * 50)
+                total_pedido = 0
+                for item in pedido:
+                    print(f"- {item['producto']} x{item['cantidad']} = ${item['precio_unitario']:.2f}")
+                    total_pedido += item['precio_unitario']
+                print("-" * 50)
+                print(f"TOTAL: ${total_pedido:.2f}")
+                print("=" * 50)
+                
+                
+                if cancelar_pedido():
+                    print(MENSAJES['pedido_cancelado'])
+                    pedido.clear()
+                    return
+            
+            from modulo_cliente.datos_cliente import capturar_datos_cliente
+            limpiar_pantalla()
+            capturar_datos_cliente()
+            pedido.clear()
+            return
 
 def calcular_cantidad_precio(precio, plato):
     while True:
         try:
-            cantidad = int(input(f"Ingrese la cantidad de '{plato}': "))
+            cantidad = input_numero(MENSAJES['ingrese_cantidad'].format(plato=plato))
             if cantidad < 0:
-                print("La cantidad no puede ser negativa. Intenta de nuevo.\n")
+                print(MENSAJES['cantidad_negativa'])
                 continue
             if cantidad == 0:
-                print("Cantidad 0 no permitida. Se agregará 1 por defecto.\n")
+                print(MENSAJES['cantidad_cero'])
                 cantidad = 1
             precio_total = precio * cantidad
             return cantidad, precio_total
         except ValueError:
-            print("Entrada inválida. Debes ingresar un número entero válido.\n")
+            print(MENSAJES['entrada_invalida'])
             continue
 
 def obtener_pedido():
