@@ -1,12 +1,14 @@
 import os
 from modulo_factura.calculo_factura import generar_factura
 from modulo_pedido.menu import obtener_pedido
+from modulo_utils.mensajes import MENSAJES
+from modulo_utils.utils import limpiar_pantalla, input_si_no
 
 datos_cliente = []
 def capturar_datos_cliente():
 
     print("=" * 30)
-    print("   *** DATOS DEL CLIENTE ***   ")
+    print(f"   {MENSAJES['datos_cliente']}   ")
     print("=" * 30)
     datos_a_pedir = ["Nombre", "Apellido", "Dirección", "Color de casa", "Método de pago (Efectivo/Tarjeta)"]
     
@@ -14,7 +16,7 @@ def capturar_datos_cliente():
         while True:
             dato = input(f"{encabezado}: ").strip().lower()
             if dato == "":
-                print("Este espacio no puede estar vacío")
+                print(MENSAJES['espacio_vacio'])
                 continue
 
             if encabezado == "Método de pago (Efectivo/Tarjeta)":
@@ -23,13 +25,14 @@ def capturar_datos_cliente():
                     datos_cliente.append({encabezado: pago}) 
                     break
                 else:
-                    print("Método inválido. Escriba 'E' para Efectivo o 'T' para Tarjeta.")
+                    print(MENSAJES['metodo_pago_invalido'])
                     continue
             else:
                 datos_cliente.append({encabezado: dato})
                 break
-    os.system("cls")
+    limpiar_pantalla()
     generar_factura(cliente=datos_cliente, pedidos=obtener_pedido())
+    datos_cliente.clear()
 
 
 def obtener_pago(pago):

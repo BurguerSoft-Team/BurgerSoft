@@ -1,5 +1,11 @@
-
 from modulo_guardar.guardar_datos import gestionar_operaciones
+from modulo_pedido.menu import mostrar_menu
+from modulo_pedido.reinicio import reiniciar_pedido
+from modulo_utils.mensajes import MENSAJES
+from modulo_utils.utils import limpiar_pantalla
+
+
+
 def generar_factura(cliente, pedidos, delivery=50):
     caracter = 45
     print("\n" + "="*caracter)
@@ -31,3 +37,10 @@ def generar_factura(cliente, pedidos, delivery=50):
     print("⏱ Tiempo estimado de entrega: 20–25 minutos")
     print("="*caracter + "\n")
     gestionar_operaciones(cliente=nombre,pedido=pedidos)
+
+    if reiniciar_pedido():
+        limpiar_pantalla()
+        mostrar_menu()
+    else:
+        limpiar_pantalla()
+        print(MENSAJES['gracias'])
