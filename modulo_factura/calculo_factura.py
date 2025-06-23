@@ -1,58 +1,32 @@
-def generar_factura(cliente, productos, delivery=1.5):
-    print("\n" + "="*40)
+
+
+def generar_factura(cliente, pedidos, delivery=50):
+    caracter = 45
+    print("\n" + "="*caracter)
     print("         🧾 BURGERSOFT - FACTURA")
-    print("="*40)
+    print("="*caracter)
 
-    # Datos del cliente
-    print(f"Nombre del cliente: {cliente['nombre']}")
-    print(f"Dirección: {cliente['direccion']}")
-    print(f"Teléfono: {cliente['telefono']}")
-    print("-" * 40)
+    nombre = cliente[0]['Nombre']
+    apellido = cliente[1]["Apellido"]
+    direccion = cliente[2]["Dirección"]
+    pago = cliente[4]["Método de pago (Efectivo/Tarjeta)"]
 
-    # Productos seleccionados
-    total_productos = 0
-    print("Productos seleccionados:")
-    for producto in productos:
-        print(f"  - {producto['nombre']} .... ${producto['precio']:.2f}")
-        total_productos += producto['precio']
-    
-    print("-" * 40)
+    print(f"Nombre del cliente: {nombre} {apellido}")
+    print(f"Dirección: {direccion}")
+    print(f"Método de pago: {pago}")
+    print("-" * caracter)
 
-    # Costo del delivery
+    total_pedido = 0
+    print("Productos seleccionados: ")
+    print("-" * caracter)
+    for pedido in pedidos:
+        print(f"{pedido['cantidad']:^5}{pedido['producto']:<30}{pedido['precio_unitario']:>8.2f}")
+        total_pedido += pedido['precio_unitario']
+    print("-" * caracter)
+
     print(f"Costo de delivery:        ${delivery:.2f}")
-
-    # Total
-    total_pagar = total_productos + delivery
+    total_pagar = total_pedido + delivery
     print(f"TOTAL A PAGAR:            ${total_pagar:.2f}")
-    print("-" * 40)
-
-    # Tiempo estimado
+    print("-" * caracter)
     print("⏱ Tiempo estimado de entrega: 20–25 minutos")
-    print("="*40 + "\n")
-
-
-# Recolectar datos del cliente
-cliente = {}
-print("👤 Ingrese sus datos:")
-cliente["nombre"] = input("Nombre: ")
-cliente["direccion"] = input("Dirección: ")
-cliente["telefono"] = input("Teléfono: ")
-
-# Ingresar productos
-productos = []
-print("\n🛒 Ingrese productos al pedido (escriba 'fin' para terminar):")
-while True:
-    nombre_producto = input("Nombre del producto: ")
-    if nombre_producto.lower() == "fin":
-        break
-    try:
-        precio = float(input("Precio del producto: $"))
-        productos.append({"nombre": nombre_producto, "precio": precio})
-    except ValueError:
-        print("⚠️ Precio inválido. Intente de nuevo.")
-
-# Generar factura
-if productos:
-    generar_factura(cliente, productos)
-else:
-    print("No se ingresaron productos. No se puede generar la factura.")
+    print("="*caracter + "\n")
