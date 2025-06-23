@@ -2,11 +2,6 @@ import os
 import json
 from datetime import date
 
-mapa = [
-    {"producto": "hamburguesa", "cantidad": 2, "precio_unitario": 90},
-    {"producto": "papas", "cantidad": 1, "precio_unitario": 30},
-    {"producto": "refresco", "cantidad": 3, "precio_unitario": 15}
-]
 
 
 ARCHIVO_VENTAS = "ventas.txt"
@@ -36,12 +31,10 @@ def crear_archivo():
     with open(ARCHIVO_VENTAS, "w"):
         pass
 
-def gestionar_operaciones():
+def gestionar_operaciones(cliente,pedido):
     if not verificar_archivo():
         crear_archivo()
     codigo = leer_archivo()
-    agregar_pedido("junior", mapa,codigo)
+    agregar_pedido(cliente,pedido,codigo)
 
 
-if __name__ == "__main__":
-    gestionar_operaciones()

@@ -1,5 +1,5 @@
 
-
+from modulo_guardar.guardar_datos import gestionar_operaciones
 def generar_factura(cliente, pedidos, delivery=50):
     caracter = 45
     print("\n" + "="*caracter)
@@ -30,3 +30,4 @@ def generar_factura(cliente, pedidos, delivery=50):
     print("-" * caracter)
     print("⏱ Tiempo estimado de entrega: 20–25 minutos")
     print("="*caracter + "\n")
+    gestionar_operaciones(cliente=nombre,pedido=pedidos)
