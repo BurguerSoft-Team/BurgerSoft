@@ -9,7 +9,7 @@ ARCHIVO_VENTAS = "ventas.txt"
 def verificar_archivo():
     return os.path.exists(ARCHIVO_VENTAS)
 
-def leer_archivo():
+def obtener_codigo():
     try:
         with open(ARCHIVO_VENTAS, "r") as f:
             lineas = f.readlines()
@@ -34,7 +34,6 @@ def crear_archivo():
 def gestionar_operaciones(cliente,pedido):
     if not verificar_archivo():
         crear_archivo()
-    codigo = leer_archivo()
-    agregar_pedido(cliente,pedido,codigo)
+    agregar_pedido(cliente,pedido,codigo=obtener_codigo())
 
 

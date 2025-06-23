@@ -12,11 +12,13 @@ def main():
     print("2.Ver historial de ganacias")
     
     while True:
+        
         opcion = input("Opcion: ")
         if opcion == "":
             print("Campo vacio!")
             continue
-        else:
+        
+        try:
             opcionEntero = int(opcion)
             if opcionEntero == 1:
                 os.system('cls')
@@ -29,6 +31,10 @@ def main():
             else:
                 print("Opcion no valido")
                 continue
+        except ValueError:
+            print("Solo se permiten numeros!")
+            continue
+            
 
 if __name__ == "__main__":
     main()
