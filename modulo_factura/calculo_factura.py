@@ -40,7 +40,7 @@ def generar_factura(cliente, pedidos, delivery=50):
 
     if reiniciar_pedido():
         limpiar_pantalla()
-        mostrar_menu()
+        mostrar_menu(limpiar=True)
     else:
         limpiar_pantalla()
         print(MENSAJES['gracias'])

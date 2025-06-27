@@ -14,7 +14,7 @@ MENSAJES = {
     'error_menu': "Error: opción no válida. Por favor, elige un número del menú.",
     'agregado_pedido': "Has agregado {cantidad} {plato} por {precio} córdobas a tu pedido.",
     'ordenar_otro': "¿Deseas ordenar otro plato? (sí/no): ",
-    'respuesta_no_valida': "Respuesta no válida. Por favor, escribe 'sí' o 'no'.",
+    'respuesta_no_valida': "Respuesta no válida. Por favor, ingrese 'S' para sí o 'N' para no.",
     'cantidad_negativa': "La cantidad no puede ser negativa. Intenta de nuevo.",
     'cantidad_cero': "Cantidad 0 no permitida. Se agregará 1 por defecto.",
     'ingrese_cantidad': "Ingrese la cantidad de '{plato}': ",

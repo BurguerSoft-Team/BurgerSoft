@@ -7,3 +7,6 @@
 {"codigo": 7, "cliente": "junior", "pedido": [{"producto": "Hamburguesa Bacon Cheese", "cantidad": 2, "precio_unitario": 360}], "fecha": "2025-06-23"}
 {"codigo": 8, "cliente": "claudio", "pedido": [{"producto": "Hamburguesa Bacon Cheese", "cantidad": 2, "precio_unitario": 360}, {"producto": "Mozarella sticks", "cantidad": 2, "precio_unitario": 360}], "fecha": "2025-06-23"}
 {"codigo": 9, "cliente": "claudio", "pedido": [{"producto": "Hamburguesa Bacon Cheese", "cantidad": 2, "precio_unitario": 360}, {"producto": "Mozarella sticks", "cantidad": 2, "precio_unitario": 360}, {"producto": "Hamburguesa Bacon Cheese", "cantidad": 1, "precio_unitario": 180}], "fecha": "2025-06-23"}
+{"codigo": 10, "cliente": "c", "pedido": [{"producto": "Hamburguesa Bacon Cheese", "cantidad": 1, "precio_unitario": 180}], "fecha": "2025-06-27"}
+{"codigo": 11, "cliente": "j", "pedido": [{"producto": "Hamburguesa Bacon Cheese", "cantidad": 2, "precio_unitario": 360}], "fecha": "2025-06-27"}
+{"codigo": 12, "cliente": "ju", "pedido": [{"producto": "Hamburguesa Bacon Cheese", "cantidad": 2, "precio_unitario": 360}], "fecha": "2025-06-27"}

@@ -16,7 +16,7 @@ def main():
         
         if opcion == 1:
             limpiar_pantalla()
-            mostrar_menu()
+            mostrar_menu(limpiar=False)
         elif opcion == 2:
             limpiar_pantalla()
             historial()

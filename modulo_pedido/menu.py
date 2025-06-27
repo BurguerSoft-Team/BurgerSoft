@@ -1,4 +1,3 @@
-import os
 from modulo_utils.mensajes import MENSAJES
 from modulo_utils.utils import limpiar_pantalla, input_numero, input_si_no
 from modulo_pedido.cancelar import cancelar_pedido
@@ -19,7 +18,11 @@ menu = {
 
 
 pedido = []
-def mostrar_menu():
+def mostrar_menu(limpiar):
+
+    if limpiar:
+        pedido.clear()
+        
     print("=" * 42)
     print(f"              {MENSAJES['menu_titulo']}   ")
     print("=" * 42)
