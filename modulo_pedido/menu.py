@@ -51,29 +51,104 @@ def mostrar_menu(limpiar):
             limpiar_pantalla()
             continue
         else:
-            if pedido:
-                print("\n" + "=" * 50)
-                print(MENSAJES['resumen_pedido'])
-                print("=" * 50)
-                total_pedido = 0
-                for item in pedido:
-                    print(f"- {item['producto']} x{item['cantidad']} = ${item['precio_unitario']:.2f}")
-                    total_pedido += item['precio_unitario']
-                print("-" * 50)
-                print(f"TOTAL: ${total_pedido:.2f}")
-                print("=" * 50)
-                
-                
-                if cancelar_pedido():
-                    print(MENSAJES['pedido_cancelado'])
-                    pedido.clear()
-                    return
-            
-            from modulo_cliente.datos_cliente import capturar_datos_cliente
-            limpiar_pantalla()
-            capturar_datos_cliente()
+            resumen(limpiar)
+            break
+
+def resumen(limpiar):
+    if pedido:
+        print("\n" + "=" * 50)
+        print(MENSAJES['resumen_pedido'])
+        print("=" * 50)
+        total_pedido = 0
+        m = 1
+        for item in pedido:
+            print(f"{m}- {item['producto']} x{item['cantidad']} = ${item['precio_unitario']:.2f}")
+            m += 1
+            total_pedido += item['precio_unitario']
+        print("-" * 50)
+        print(f"TOTAL: ${total_pedido:.2f}")
+        print("=" * 50)
+
+        cambio(limpiar)
+        
+        if cancelar_pedido():
+            print(MENSAJES['pedido_cancelado'])
             pedido.clear()
             return
+            
+    from modulo_cliente.datos_cliente import capturar_datos_cliente
+    limpiar_pantalla()
+    capturar_datos_cliente(limpiar=limpiar)
+    pedido.clear()
+    return
+        
+def cambio(limpiar):
+    while True:
+        condicion = input("Desea cambiar un plato de su orden? (si/no): ")
+        if condicion.lower().strip() in ["s", "si"]:
+            while True:
+                cambio = input_numero("Ingrese el numero del plato que desea cambiar: ")
+                if cambio in range(1,len(pedido) + 1):
+                    limpiar_pantalla()
+                    seleccionado = pedido[cambio-1]
+                    
+                    print(f"- {seleccionado['producto']} x{seleccionado['cantidad']} = ${seleccionado['precio_unitario']:.2f}")
+                    print("")
+                    n = 1
+                    for plato, precio in menu.items():
+                        print(f"{n}. {plato} - {precio} córdobas")
+                        n += 1
+                    print("\n")
+                    while True:
+                        seleccion = int(input("Por cual lo desea reemplazar?: "))
+                    
+                        if 1 <= seleccion <= len(menu):
+                            plato_elegido = list(menu.keys())[seleccion - 1]
+                            while True:
+                                cantidad_nueva = int(input("Cuantas unidades desea?: "))
+                                print("")
+                                if cantidad_nueva <= 0:
+                                    print("Ingrese un mayor que 0")
+                                    continue
+                                else:
+                                    precio = menu[plato_elegido]
+                                    precio_nuevo = precio * cantidad_nueva
+
+                                    if cantidad_nueva:
+                                        cantidad = int(cantidad_nueva)
+                                    if precio_nuevo:
+                                        precio = int(precio_nuevo)
+                                    if plato_elegido:
+                                        pedido[cambio-1] = {"producto": plato_elegido, "cantidad": cantidad, "precio_unitario": precio}
+
+                                    print("PEDIDO ACTUALIZADO!")
+                                    print("\n" + "=" * 50)
+                                    print(MENSAJES['resumen_pedido'])
+                                    print("=" * 50)
+                                    total_pedido = 0
+                                    for item in pedido:
+                                        print(f"- {item['producto']} x{item['cantidad']} = ${item['precio_unitario']:.2f}")
+                                        total_pedido += item['precio_unitario']
+                                    print("-" * 50)
+                                    print(f"TOTAL: ${total_pedido:.2f}")
+                                    print("=" * 50)
+                                    break
+                        else:
+                            print("Ingrese un numero dentro del rango\n")
+                            continue
+                        break
+                    
+                else:
+                    print("Ingrese un numero dentro del rango\n")
+                    continue
+                break
+        elif condicion.lower().strip() in ["n", "no"]:
+            break
+        else:
+            print(MENSAJES['respuesta_no_valida'])
+            print("")
+            continue
+        break
 
 def calcular_cantidad_precio(precio, plato):
     while True:

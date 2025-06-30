@@ -5,7 +5,9 @@ from modulo_utils.mensajes import MENSAJES
 from modulo_utils.utils import limpiar_pantalla, input_si_no
 
 datos_cliente = []
-def capturar_datos_cliente():
+def capturar_datos_cliente(limpiar):
+    if limpiar:
+        datos_cliente.clear()
 
     print("=" * 30)
     print(f"   {MENSAJES['datos_cliente']}   ")

@@ -4,8 +4,6 @@ from modulo_pedido.reinicio import reiniciar_pedido
 from modulo_utils.mensajes import MENSAJES
 from modulo_utils.utils import limpiar_pantalla
 
-
-
 def generar_factura(cliente, pedidos, delivery=50):
     caracter = 45
     print("\n" + "="*caracter)
@@ -43,4 +41,4 @@ def generar_factura(cliente, pedidos, delivery=50):
         mostrar_menu(limpiar=True)
     else:
         limpiar_pantalla()
-        print(MENSAJES['gracias'])
+        

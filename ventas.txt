@@ -1,12 +1,12 @@
-{"codigo": 1, "cliente": "junior", "pedido": [{"producto": "Hamburguesa Bacon Cheese", "cantidad": 3, "precio_unitario": 540}], "fecha": "2024-06-23"}
-{"codigo": 2, "cliente": "junior", "pedido": [{"producto": "Hamburguesa Bacon Cheese", "cantidad": 3, "precio_unitario": 540}, {"producto": "Alitas de 18", "cantidad": 2, "precio_unitario": 1000}], "fecha": "2025-06-01"}
-{"codigo": 3, "cliente": "junior", "pedido": [{"producto": "Hamburguesa Bacon Cheese", "cantidad": 1, "precio_unitario": 180}, {"producto": "Hamburguesa Carnuda", "cantidad": 2, "precio_unitario": 440}], "fecha": "2025-06-23"}
-{"codigo": 4, "cliente": "junior", "pedido": [{"producto": "Hamburguesa Bacon Cheese", "cantidad": 2, "precio_unitario": 360}], "fecha": "2025-06-23"}
-{"codigo": 5, "cliente": "junior", "pedido": [{"producto": "Hamburguesa Bacon Cheese", "cantidad": 2, "precio_unitario": 360}, {"producto": "Hamburguesa Bacon Cheese", "cantidad": 2, "precio_unitario": 360}, {"producto": "Mozarella sticks", "cantidad": 1, "precio_unitario": 180}], "fecha": "2025-06-23"}
-{"codigo": 6, "cliente": "junior", "pedido": [{"producto": "Hamburguesa Bacon Cheese", "cantidad": 1, "precio_unitario": 180}], "fecha": "2025-06-23"}
-{"codigo": 7, "cliente": "junior", "pedido": [{"producto": "Hamburguesa Bacon Cheese", "cantidad": 2, "precio_unitario": 360}], "fecha": "2025-06-23"}
-{"codigo": 8, "cliente": "claudio", "pedido": [{"producto": "Hamburguesa Bacon Cheese", "cantidad": 2, "precio_unitario": 360}, {"producto": "Mozarella sticks", "cantidad": 2, "precio_unitario": 360}], "fecha": "2025-06-23"}
-{"codigo": 9, "cliente": "claudio", "pedido": [{"producto": "Hamburguesa Bacon Cheese", "cantidad": 2, "precio_unitario": 360}, {"producto": "Mozarella sticks", "cantidad": 2, "precio_unitario": 360}, {"producto": "Hamburguesa Bacon Cheese", "cantidad": 1, "precio_unitario": 180}], "fecha": "2025-06-23"}
-{"codigo": 10, "cliente": "c", "pedido": [{"producto": "Hamburguesa Bacon Cheese", "cantidad": 1, "precio_unitario": 180}], "fecha": "2025-06-27"}
-{"codigo": 11, "cliente": "j", "pedido": [{"producto": "Hamburguesa Bacon Cheese", "cantidad": 2, "precio_unitario": 360}], "fecha": "2025-06-27"}
-{"codigo": 12, "cliente": "ju", "pedido": [{"producto": "Hamburguesa Bacon Cheese", "cantidad": 2, "precio_unitario": 360}], "fecha": "2025-06-27"}
+{"codigo": 1, "cliente": "j", "pedido": [{"producto": "Hamburguesa Carnuda", "cantidad": 1, "precio_unitario": 220}], "fecha": "2025-06-29"}
+{"codigo": 2, "cliente": "k", "pedido": [{"producto": "Aros de cebolla", "cantidad": 2, "precio_unitario": 260}], "fecha": "2025-06-29"}
+{"codigo": 3, "cliente": "o", "pedido": [{"producto": "Sandwich de pollo", "cantidad": 3, "precio_unitario": 510}], "fecha": "2025-06-29"}
+{"codigo": 4, "cliente": "jol", "pedido": [{"producto": "Mozarella sticks", "cantidad": 2, "precio_unitario": 360}], "fecha": "2025-06-29"}
+{"codigo": 5, "cliente": "lo", "pedido": [{"producto": "Cheese Burger", "cantidad": 2, "precio_unitario": 320}], "fecha": "2025-06-29"}
+{"codigo": 6, "cliente": "ca", "pedido": [{"producto": "Hamburguesa Bacon Cheese", "cantidad": 1, "precio_unitario": 180}], "fecha": "2025-06-29"}
+{"codigo": 7, "cliente": "ca", "pedido": [{"producto": "Sandwich de pollo", "cantidad": 1, "precio_unitario": 170}, {"producto": "Alitas de 18", "cantidad": 1, "precio_unitario": 500}], "fecha": "2025-06-29"}
+{"codigo": 8, "cliente": "claudio", "pedido": [{"producto": "Hamburguesa Carnuda", "cantidad": 2, "precio_unitario": 440}, {"producto": "Alitas de 18", "cantidad": 1, "precio_unitario": 500}], "fecha": "2025-06-29"}
+{"codigo": 9, "cliente": "claudio", "pedido": [{"producto": "Hamburguesa Bacon Cheese", "cantidad": 1, "precio_unitario": 180}], "fecha": "2025-06-29"}
+{"codigo": 10, "cliente": "junior", "pedido": [{"producto": "Sandwich de pollo", "cantidad": 2, "precio_unitario": 340}, {"producto": "Alitas de 6", "cantidad": 1, "precio_unitario": 220}, {"producto": "Chilli Fries", "cantidad": 2, "precio_unitario": 400}], "fecha": "2025-06-29"}
+{"codigo": 11, "cliente": "kelly", "pedido": [{"producto": "Alitas de 18", "cantidad": 2, "precio_unitario": 1000}, {"producto": "Mozarella sticks", "cantidad": 2, "precio_unitario": 360}], "fecha": "2025-06-29"}
+{"codigo": 12, "cliente": "junior", "pedido": [{"producto": "Sandwich de pollo", "cantidad": 2, "precio_unitario": 340}], "fecha": "2025-06-29"}
