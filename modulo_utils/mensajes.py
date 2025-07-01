@@ -30,4 +30,6 @@ MENSAJES = {
     'total_ganado': "TOTAL GANADO EN EL PERIODO: ${total:.2f}",
     'pedido_cancelado': "Pedido cancelado. Volviendo al menú principal...",
     'resumen_pedido': "RESUMEN DE TU PEDIDO:",
+    "numero_no_permitido": "No se permiten números en estos datos. Intente nuevamente.",
+    "cantidad_negativa": "La cantidad no puede ser negativa. Intenta de nuevo.",
 } 
