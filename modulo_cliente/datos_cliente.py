@@ -21,21 +21,40 @@ def capturar_datos_cliente(limpiar):
                 print(MENSAJES['espacio_vacio'])
                 continue
 
-            if encabezado == "Método de pago (Efectivo/Tarjeta)":
-                if dato == "e" or dato == "t":
-                    pago = obtener_pago(dato)
-                    datos_cliente.append({encabezado: pago}) 
-                    break
-                else:
-                    print(MENSAJES['metodo_pago_invalido'])
-                    continue
+            
+            if validar_numero(dato):
+                print(MENSAJES['numero_no_permitido'])
+                continue
             else:
-                datos_cliente.append({encabezado: dato})
-                break
+                if validacion_entrada(dato):
+                    print(MENSAJES['cantidad_negativa'])
+                    continue
+                elif encabezado == "Método de pago (Efectivo/Tarjeta)":
+                        if dato == "e" or dato == "t":
+                            pago = obtener_pago(dato)
+                            datos_cliente.append({encabezado: pago}) 
+                            break
+                        else:
+                            print(MENSAJES['metodo_pago_invalido'])
+                            continue
+                else:
+                    datos_cliente.append({encabezado: dato}) 
+                    break
+                        
+                            
     limpiar_pantalla()
     generar_factura(cliente=datos_cliente, pedidos=obtener_pedido())
     datos_cliente.clear()
 
+def validacion_entrada(dato):
+    try:
+        int(dato)
+        return True
+    except ValueError:
+        return False
+
+def validar_numero(dato):
+    return dato.isdigit()
 
 def obtener_pago(pago):
     if pago == "e" or pago == "E":
