@@ -75,7 +75,7 @@ def filtrar_ganancias(fechas):
                 
                 # Calcula subtotales por producto
                 for item in venta["pedido"]:
-                    subtotal = item["precio_unitario"] * item["cantidad"]
+                    subtotal = item["Total"]
                     ventas_por_fecha[fecha_str]["subtotal"] += subtotal
                     ventas_por_fecha[fecha_str]["detalles"].append(
                         f"- {item["producto"]} x {item["cantidad"]} = {subtotal:.2f}"

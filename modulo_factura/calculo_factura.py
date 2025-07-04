@@ -39,8 +39,8 @@ def generar_factura(cliente, pedidos, delivery=50):
     print("Productos seleccionados: ")
     print("-" * caracter)
     for pedido in pedidos:
-        print(f"{pedido['cantidad']:^5}{pedido['producto']:<30}{pedido['precio_unitario']:>8.2f}")
-        total_pedido += pedido['precio_unitario']
+        print(f"{pedido['cantidad']:^5}{pedido['producto']:<30}{pedido['Total']:>8.2f}")
+        total_pedido += pedido['Total']
     print("-" * caracter)
 
     # Muestra el resumen final con delivery

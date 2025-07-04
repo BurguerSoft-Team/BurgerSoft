@@ -50,7 +50,7 @@ def mostrar_menu(limpiar):
             # Procesa la selección válida
             plato_elegido = list(menu.keys())[seleccion - 1]
             cantidad, precio = calcular_cantidad_precio(precio=menu[plato_elegido], plato=plato_elegido)
-            pedido.append({"producto": plato_elegido, "cantidad": cantidad, "precio_unitario": precio})
+            pedido.append({"producto": plato_elegido, "cantidad": cantidad, "Total": precio})
             print(MENSAJES['agregado_pedido'].format(cantidad=cantidad, plato=plato_elegido, precio=precio))
         else:
             # Maneja selección inválida
@@ -84,9 +84,9 @@ def resumen(limpiar):
         total_pedido = 0
         m = 1
         for item in pedido:
-            print(f"{m}- {item['producto']} x{item['cantidad']} = ${item['precio_unitario']:.2f}")
+            print(f"{m}- {item['producto']} x{item['cantidad']} = ${item['Total']:.2f}")
             m += 1
-            total_pedido += item['precio_unitario']
+            total_pedido += item['Total']
         print("-" * 50)
         print(f"TOTAL: ${total_pedido:.2f}")
         print("=" * 50)
@@ -125,7 +125,7 @@ def cambio(limpiar):
                     seleccionado = pedido[cambio-1]
                     
                     # Muestra el plato seleccionado y el menú completo
-                    print(f"- {seleccionado['producto']} x{seleccionado['cantidad']} = ${seleccionado['precio_unitario']:.2f}")
+                    print(f"- {seleccionado['producto']} x{seleccionado['cantidad']} = ${seleccionado['Total']:.2f}")
                     print("")
                     n = 1
                     for plato, precio in menu.items():
@@ -155,7 +155,7 @@ def cambio(limpiar):
                                     if precio_nuevo:
                                         precio = int(precio_nuevo)
                                     if plato_elegido:
-                                        pedido[cambio-1] = {"producto": plato_elegido, "cantidad": cantidad, "precio_unitario": precio}
+                                        pedido[cambio-1] = {"producto": plato_elegido, "cantidad": cantidad, "Total": precio}
 
                                     # Muestra el pedido actualizado
                                     print("PEDIDO ACTUALIZADO!")
@@ -164,8 +164,8 @@ def cambio(limpiar):
                                     print("=" * 50)
                                     total_pedido = 0
                                     for item in pedido:
-                                        print(f"- {item['producto']} x{item['cantidad']} = ${item['precio_unitario']:.2f}")
-                                        total_pedido += item['precio_unitario']
+                                        print(f"- {item['producto']} x{item['cantidad']} = ${item['Total']:.2f}")
+                                        total_pedido += item['Total']
                                     print("-" * 50)
                                     print(f"TOTAL: ${total_pedido:.2f}")
                                     print("=" * 50)
